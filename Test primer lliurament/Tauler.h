@@ -7,5 +7,13 @@ const int MAX_COL = 8;
 
 class Tauler
 {
+    public:
+        Tauler();
+        void inicialitza(ColorFigura tauler[MAX_FILA][MAX_COL]);
+        
+
+
+    private:
+        ColorFigura m_tauler[MAX_FILA][MAX_COL];
 };
 #endif
