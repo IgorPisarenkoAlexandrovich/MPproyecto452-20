@@ -157,36 +157,36 @@ void Figura::giraAntiHorari()
 
 void Figura::trasposaMatriu()
 {
-    for (int i = 0; i < m_nCaselles; i++)
-    {
-        for (int j = i + 1; j < m_nCaselles; j++)
-        {
-            ColorFigura temp = m_forma[i][j];
-            m_forma[i][j] = m_forma[j][i];
-            m_forma[j][i] = temp;
-        }
-    }
+	for (int i = 0; i < m_nCaselles; i++)
+	{
+		for (int j = i + 1; j < m_nCaselles; j++)
+		{
+			ColorFigura temp = m_forma[i][j];
+			m_forma[i][j] = m_forma[j][i];
+			m_forma[j][i] = temp;
+		}
+	}
 }
 
 void Figura::inverteixFiles()
 {
-       for (int i = 0; i < m_nCaselles / 2; i++)
-    {
-        for (int j = 0; j < m_nCaselles; j++)
-        {
-            ColorFigura aux = m_forma[i][j];
-            m_forma[i][j] = m_forma[m_nCaselles - 1 - i][j];
-            m_forma[m_nCaselles - 1 - i][j] = aux;
-        }
-    }
+	for (int i = 0; i < m_nCaselles / 2; i++)
+	{
+		for (int j = 0; j < m_nCaselles; j++)
+		{
+			ColorFigura aux = m_forma[i][j];
+			m_forma[i][j] = m_forma[m_nCaselles - 1 - i][j];
+			m_forma[m_nCaselles - 1 - i][j] = aux;
+		}
+	}
 }
 
 void Figura::inverteixColumnes()
 {
-    for (int i = 0; i < m_nCaselles; i++)
+	for (int i = 0; i < m_nCaselles; i++)
 	{
-		int left = 0;                            
-		int right = m_nCaselles - 1;             
+		int left = 0;
+		int right = m_nCaselles - 1;
 		while (left < right)
 		{
 			ColorFigura aux = m_forma[i][left];

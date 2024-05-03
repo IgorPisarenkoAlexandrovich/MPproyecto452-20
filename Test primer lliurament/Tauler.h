@@ -26,7 +26,7 @@ private:
 	//metodes auxiliars
 	void desplacaDreta(bool& collisiona, int& posx, int& posy, const Figura& figura);
 	void desplacaEsquerra(bool& collisiona, int& posx, int& posy, const Figura& figura);
-	void baixaFila(const int& fila); 
+	void baixaFila(const int& fila);
 	ColorFigura m_tauler[MAX_FILA][MAX_COL];
 };
 

@@ -32,19 +32,20 @@ bool Joc::giraFigura(DireccioGir direccio)
 		}
 	}
 	if (direccio == GIR_HORARI) {
-        m_figura.giraHorari();
-    } else if (direccio == GIR_ANTI_HORARI) {
-        m_figura.giraAntiHorari();
-    }
+		m_figura.giraHorari();
+	}
+	else if (direccio == GIR_ANTI_HORARI) {
+		m_figura.giraAntiHorari();
+	}
 	return m_tauler.girFigura(m_figura);
 }
 
 bool Joc::mouFigura(int dirX)
 {
-    int col = dirX;
-    m_figura.setCol(col);
-    bool comprova = m_tauler.mouFigura(m_figura, col);
-    return comprova;
+	int col = dirX;
+	m_figura.setCol(col);
+	bool comprova = m_tauler.mouFigura(m_figura, col);
+	return comprova;
 }
 
 int Joc::baixaFigura()
@@ -80,5 +81,4 @@ void Joc::escriuTauler(const string& nomFitxer)
 		fitxer << m_tauler;
 	}
 	fitxer.close();
-
 }

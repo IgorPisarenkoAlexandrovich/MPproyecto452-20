@@ -78,7 +78,7 @@ void Tauler::baixaFila(const int& fila)
 
 }
 
-int Tauler::eliminaFiles(Figura& figura) // retorna el nombre de files completades
+int Tauler::eliminaFiles(Figura& figura)
 {
 	int nFiles = 0;
 	int j;
