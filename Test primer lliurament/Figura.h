@@ -1,6 +1,10 @@
 #ifndef FIGURA_H
 #define FIGURA_H
 
+#include <iostream>
+#include <fstream>
+using namespace std;
+
 typedef enum
 {
     COLOR_NEGRE = 0,
@@ -38,45 +42,41 @@ typedef enum
 
 class Figura
 {
-    public:
-        Figura(): m_color(COLOR_NEGRE), m_tipus(NO_FIGURA), m_height(MAX_ALCADA), m_length(MAX_AMPLADA),
-                    m_row(0), m_column(0), m_gir(0) {initForm();}
+public:
+    Figura();
+    TipusFigura getTipus() const { return m_tipus; }
+    void setFila() { m_fila++; }
+    void setCol(int dir) { m_columna += dir; }
+    void setDireccio(DireccioGir direccio) { m_direccio = direccio; }
+    int getFila() const { return m_fila; }
+    int getColumna() const { return m_columna; }
+    int getGir() const { return m_gir; }
+    DireccioGir getDireccio() const { return m_direccio; }
+    ColorFigura getForma(const int& posx, const int& posy) const { return m_forma[posx][posy]; }
+    int getNumCaselles() const { return m_nCaselles; }
+    void inicialitza(const TipusFigura& tipus, const int& fila, const int& columna, const int& gir);
+    void giraHorari();
+    void giraAntiHorari();
+    void operator=(const Figura& figura);
+    ColorFigura getColor() const { return m_color; }
 
-        void initForm();
-        void giveFormFigura(TipusFigura tipus);
-        void rotate(DireccioGir gir);
-
-        void move(int dirX) {m_column += dirX;}
-        void up() {m_row++;}
-        void down() {m_row--;}
-
-        int getHeight() {return m_height;}
-        int getLength() {return m_length;}
-        int getRow() {return m_row;}
-        int getCol() {return m_column;}
-        int getGir() {return m_gir;}
-        ColorFigura getColor() {return m_color;}
-        TipusFigura getTipus() {return m_tipus;}
-
-        void setHeight(int height) {m_height = height;}
-        void setLength(int length) {m_length = length;}
-        void setRow(int row) {m_row = row;}
-        void setCol(int col) {m_column = col;}
-        void setGir(int gir) {m_gir = gir;}
-        void setColor(ColorFigura color) {m_color = color;}
-        void setTipus(TipusFigura tipus) {m_tipus = tipus;}
-
-    private:
-        ColorFigura m_color;
-        TipusFigura m_tipus;
-
-        int m_height;
-        int m_length;
-        int m_row;
-        int m_column;
-        bool m_form[MAX_ALCADA][MAX_AMPLADA];
-        int m_gir;
+private:
+    void trasposaMatriu();
+    void inverteixFiles();
+    void inverteixColumnes();
+    DireccioGir m_direccio;
+    TipusFigura m_tipus;
+    ColorFigura m_color;
+    int m_fila;
+    int m_columna;
+    int m_gir;
+    ColorFigura m_forma[MAX_ALCADA][MAX_AMPLADA];
+    int m_nCaselles;
 };
 
+ifstream& operator>>(ifstream& input, Figura& f);
+ifstream& operator>>(ifstream& input, ColorFigura& color);
+ofstream& operator<<(ofstream& output, const ColorFigura& color);
+ifstream& operator>>(ifstream& input, TipusFigura& tipus);
 
 #endif
